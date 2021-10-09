@@ -31,6 +31,7 @@ public class SignUpIntermediateActivity extends AppCompatActivity {
         cvRestarauntBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(SignUpIntermediateActivity.this,SignUpBusinessActivity.class));
 
             }
         });

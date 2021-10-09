@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.eventsapp">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".other.App"
@@ -13,6 +13,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EventsApp">
+        <activity
+            android:name=".activities.FinalStudentSignUpActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.SignUpStudentActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.SignUpIntermediateActivity"
+            android:exported="true" />
 
         <meta-data
             android:name="com.parse.SERVER_URL"
@@ -23,9 +32,11 @@
         <meta-data
             android:name="com.parse.CLIENT_KEY"
             android:value="@string/back4app_client_key" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".activities.MainActivity"/>
-
+        <activity android:name=".activities.MainActivity" />
         <activity android:name=".activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -66,24 +66,9 @@ public class LoginActivity extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                ParseUser user = new ParseUser();
-                user.setUsername(etUserName.getText().toString().trim());
-                user.setPassword(etPassword.getText().toString().trim());
-
-                user.signUpInBackground(new SignUpCallback() {
-                    public void done(ParseException e) {
-                        if (e == null) {
-                            Toast.makeText(LoginActivity.this, "Account Created", Toast.LENGTH_LONG).show();
-                            goMainActivity();
-                        } else {
-                            Toast.makeText(LoginActivity.this, "Could not create account", Toast.LENGTH_LONG).show();
-                        }
-                    }
-
-                });
-
+                startActivity(new Intent(LoginActivity.this, SignUpIntermediateActivity.class));
             }
+
         });
 
     }

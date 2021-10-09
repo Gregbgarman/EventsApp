@@ -3,7 +3,9 @@ package com.example.eventsapp.activities;
 import android.os.Bundle;
 
 import com.example.eventsapp.R;
+import com.example.eventsapp.fragments.FragmentEvents;
 import com.example.eventsapp.fragments.FragmentHome;
+import com.example.eventsapp.fragments.FragmentProfile;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -20,6 +22,8 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.eventsapp.databinding.ActivityMainBinding;
+import com.parse.ParseFile;
+import com.parse.ParseUser;
 
 import android.view.Menu;
 import android.view.MenuItem;
@@ -36,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
         InitializeBottomNavBar();
 
 
-
     }
 
     private void InitializeBottomNavBar(){
@@ -47,8 +50,16 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 Fragment fragment;
                 switch (menuItem.getItemId()) {
+                    case R.id.itFragmentEvent:
+                        fragment=new FragmentEvents();
+                        break;
+
+                    case R.id.itFragmentProfile:
+                        fragment=new FragmentProfile();
+                        break;
+
                     default:
-                    case R.id.itHome:
+                    case R.id.itFragmentHome:
                         fragment=new FragmentHome();
                         break;
 
@@ -57,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-        bottomNavigationView.setSelectedItemId(R.id.itHome);        //selects the home fragment at start of program
+        bottomNavigationView.setSelectedItemId(R.id.itFragmentHome);        //selects the home fragment at start of program
 
     }
 

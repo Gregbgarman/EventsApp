@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -65,8 +66,15 @@ public class SignUpBusinessActivity extends AppCompatActivity implements OnMapRe
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.MyGoogleMap);
         mapFragment.getMapAsync(this);
+        InitializeViews();
 
-        etSearchBusiness=findViewById(R.id.etBusinessSearch);
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SignUpBusinessActivity.this,FinalBusinessSignUpActivity.class));
+            }
+        });
+
         etSearchBusiness.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -86,14 +94,6 @@ public class SignUpBusinessActivity extends AppCompatActivity implements OnMapRe
             }
         });
 
-
-        PlacesListLayout=findViewById(R.id.RLBusinesses);
-        btnSubmit=findViewById(R.id.btnConfirmBusiness);
-        tvMessage=findViewById(R.id.tvCorrectBusiness);
-        ivBusiness=findViewById(R.id.ivBusinessImage);
-        tvAddress=findViewById(R.id.tvBusinessAddress);
-
-        PlaceList=new ArrayList<>();
 
         PlaceAdapter.GetLocationInterface getLocationInterface=new PlaceAdapter.GetLocationInterface() {
             @Override
@@ -116,13 +116,10 @@ public class SignUpBusinessActivity extends AppCompatActivity implements OnMapRe
 
             }
         };
-
-
-        recyclerView=findViewById(R.id.RVBusiness);
+        PlaceList=new ArrayList<>();
         placeAdapter=new PlaceAdapter(this,PlaceList,getLocationInterface);
         recyclerView.setAdapter(placeAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         HideAll();
     }
 
@@ -189,7 +186,8 @@ public class SignUpBusinessActivity extends AppCompatActivity implements OnMapRe
 
                 } catch (JSONException e) {
                     e.printStackTrace();
-                } }
+                }
+            }
 
             @Override
             public void onFailure(int i, Headers headers, String s, Throwable throwable) {
@@ -199,5 +197,14 @@ public class SignUpBusinessActivity extends AppCompatActivity implements OnMapRe
 
     }
 
+private void InitializeViews(){
+    etSearchBusiness=findViewById(R.id.etBusinessSearch);
+    PlacesListLayout=findViewById(R.id.RLBusinesses);
+    btnSubmit=findViewById(R.id.btnConfirmBusiness);
+    tvMessage=findViewById(R.id.tvCorrectBusiness);
+    ivBusiness=findViewById(R.id.ivBusinessImage);
+    tvAddress=findViewById(R.id.tvBusinessAddress);
+    recyclerView=findViewById(R.id.RVBusiness);
+}
 
 }

@@ -165,7 +165,7 @@ public class FinalStudentSignUpActivity extends AppCompatActivity {
             }
         });
 
-    }
+    }       ////
 
     private void AccessPhonePhotoGallery(){
         Intent intent=new Intent();

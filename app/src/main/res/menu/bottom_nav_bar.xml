@@ -10,8 +10,8 @@
 
     <item
         android:id="@+id/itFragmentEvent"
-        android:icon="@android:drawable/btn_star_big_on"
-        android:title="Fragment"
+        android:icon="@android:drawable/ic_input_add"
+        android:title="New Event"
         app:showAsAction="always" />
 
     <item

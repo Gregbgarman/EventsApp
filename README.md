@@ -4,7 +4,9 @@
 
 * [X] Back4App Database Creation
 * [X] Login/Signup functionality
-* [X] Base Fragments created
+  * [X] Profile Creation for a student
+  * [X] Profile Creation for a business owner
+* [X] Home Fragments created
 * [X] Basic Profile Setup
 * [X] Event Creation Setup
 
@@ -13,3 +15,5 @@
 [Software Requirements and Design Document](https://github.com/Gregbgarman/EventsApp/blob/master/RD%20Template.docx)
 
 [Software Implementation and Testing Document](https://github.com/Gregbgarman/EventsApp/blob/master/IT%20Template.docx)
+
+[Youtube Video Link](https://youtu.be/GO7YOX7wp-o)

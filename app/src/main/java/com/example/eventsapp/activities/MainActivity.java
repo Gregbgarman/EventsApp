@@ -22,6 +22,8 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.eventsapp.databinding.ActivityMainBinding;
+import com.parse.ParseFile;
+import com.parse.ParseUser;
 
 import android.view.Menu;
 import android.view.MenuItem;
@@ -36,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         InitializeBottomNavBar();
-
 
 
     }

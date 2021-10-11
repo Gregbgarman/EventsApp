@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.example.eventsapp.R;
 import com.parse.Parse;
+import com.parse.ParseObject;
 
 public class App extends Application {
 

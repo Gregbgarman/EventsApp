@@ -8,7 +8,7 @@
 * [X] Basic Profile Setup
 * [X] Event Creation Setup
 
-[Progress Report]()
+[Progress Report](https://github.com/Gregbgarman/EventsApp/blob/master/Progress%20Report%20Template.docx)
 
 [Software Requirements and Design Document](https://github.com/Gregbgarman/EventsApp/blob/master/RD%20Template.docx)
 

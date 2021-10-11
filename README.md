@@ -12,5 +12,4 @@
 
 ### Software Requirements and Design Document
 
-### Software Implementation and Testing Document 
-IT Template.docx
+### [Software Implementation and Testing Document](IT Template.docx)

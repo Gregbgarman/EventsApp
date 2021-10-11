@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,16 +7,77 @@
     tools:context=".fragments.FragmentEvents">
 
     <!-- TODO: Update blank fragment layout -->
+
     <TextView
-        android:layout_width="286dp"
-        android:layout_height="144dp"
-        android:text="Fragment 2"
+        android:id="@+id/textView3"
+        android:layout_width="272dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:clickable="false"
+        android:fontFamily="sans-serif-black"
+        android:shadowRadius="5"
+        android:text="Create New Event"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.4" />
+        app:layout_constraintVertical_bias="0.0" />
 
+    <EditText
+        android:id="@+id/etGetEventName"
+        android:layout_width="396dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:hint="Event Name"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <EditText
+        android:id="@+id/etGetDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:hint="Enter Date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etGetEventName" />
+
+    <EditText
+        android:id="@+id/etGetDescription"
+        android:layout_width="356dp"
+        android:layout_height="158dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Enter Description..."
+        android:inputType="textMultiLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etGetTime" />
+
+    <EditText
+        android:id="@+id/etGetTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="Enter Time"
+        android:inputType="time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etGetDate" />
+
+    <Button
+        android:id="@+id/btSubmit"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:text="CREATE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etGetDescription" />
 </androidx.constraintlayout.widget.ConstraintLayout>

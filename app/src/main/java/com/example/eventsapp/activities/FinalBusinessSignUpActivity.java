@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.eventsapp.R;
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 import com.parse.SignUpCallback;
@@ -40,6 +41,10 @@ public class FinalBusinessSignUpActivity extends AppCompatActivity {
                 CreateBusinessProfile();
             }
         });
+
+
+
+
 
     }
 

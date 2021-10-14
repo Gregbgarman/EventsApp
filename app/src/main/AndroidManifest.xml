@@ -19,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EventsApp">
         <activity
+            android:name=".activities.OtherProfileActivity"
+            android:exported="true" />
+        <activity
             android:name=".activities.FinalBusinessSignUpActivity"
             android:exported="true" />
         <!--

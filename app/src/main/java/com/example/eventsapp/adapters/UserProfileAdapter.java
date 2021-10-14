@@ -1,7 +1,9 @@
 package com.example.eventsapp.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,10 +11,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.eventsapp.R;
+import com.example.eventsapp.activities.OtherProfileActivity;
 import com.example.eventsapp.activities.SignUpBusinessActivity;
 import com.parse.ParseUser;
 
@@ -50,12 +54,14 @@ public class UserProfileAdapter extends RecyclerView.Adapter<UserProfileAdapter.
 
         private TextView tvUserName,tvPersonName;
         private ImageView ivProfilepic;
+        private ConstraintLayout container;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvUserName=itemView.findViewById(R.id.tveachprofileusername);
             ivProfilepic=itemView.findViewById(R.id.iveachprofileprofilepic);
             tvPersonName=itemView.findViewById(R.id.tveachprofilePersonName);
+            container=itemView.findViewById(R.id.CLeachprofile);
         }
 
         public void bind(ParseUser parseUser){
@@ -81,6 +87,17 @@ public class UserProfileAdapter extends RecyclerView.Adapter<UserProfileAdapter.
                 tvPersonName.setText((String)parseUser.get("RealName"));
                 Glide.with(context).load(parseUser.getParseFile("ProfilePicture").getUrl()).circleCrop().into(ivProfilepic);
             }
+
+            container.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle bundle=new Bundle();
+                    bundle.putParcelable("UserProfileFromAdapter",parseUser);
+                    Intent intent=new Intent(context, OtherProfileActivity.class);
+                    intent.putExtra("BundleFromAdapter",bundle);
+                    context.startActivity(intent);
+                }
+            });
 
 
         }

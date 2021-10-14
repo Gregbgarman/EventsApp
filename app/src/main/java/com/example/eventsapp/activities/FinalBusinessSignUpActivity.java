@@ -23,6 +23,7 @@ public class FinalBusinessSignUpActivity extends AppCompatActivity {
     private EditText etUsername,etPassword;
     private Button btnSubmit;
     private boolean HasUsername,HasPassword;
+    private String PhotoURLNoKey,BusinessAddress;
 
     //TODO: Get Real Business Name pushed to Parse. Email is only login criterion.
 
@@ -31,6 +32,12 @@ public class FinalBusinessSignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final_business_sign_up);
         getSupportActionBar().hide();
+        Bundle bundle=getIntent().getBundleExtra("BusinessBundle");
+        PhotoURLNoKey=bundle.getString("ImageURL");
+        BusinessAddress=bundle.getString("Address");
+
+
+
         etUsername=findViewById(R.id.etBusinessEmail);
         etPassword=findViewById(R.id.etBusinessPassword);
         btnSubmit=findViewById(R.id.btnCreateBusinessProfile);
@@ -41,9 +48,6 @@ public class FinalBusinessSignUpActivity extends AppCompatActivity {
                 CreateBusinessProfile();
             }
         });
-
-
-
 
 
     }
@@ -61,6 +65,8 @@ public class FinalBusinessSignUpActivity extends AppCompatActivity {
                 if (e==null) {
                     Toast.makeText(FinalBusinessSignUpActivity.this, "Account Created", Toast.LENGTH_LONG).show();
                     ParseUser.getCurrentUser().put("IsBusinessProfile", true);
+                    ParseUser.getCurrentUser().put("BusinessImageURL",PhotoURLNoKey);
+                    ParseUser.getCurrentUser().put("BusinessAddress",BusinessAddress);
                     ParseUser.getCurrentUser().saveInBackground(new SaveCallback() {
                         @Override
                         public void done(ParseException e) {

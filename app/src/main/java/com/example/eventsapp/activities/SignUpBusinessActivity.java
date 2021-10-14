@@ -56,7 +56,8 @@ public class SignUpBusinessActivity extends AppCompatActivity implements OnMapRe
     private RelativeLayout PlacesListLayout;
     private TextView tvMessage,tvAddress;
     private ImageView ivBusiness;
-
+    private String URLNoKey="N/A";      //default value for these so can never crash next activity if null
+    private String Address="No Address";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +72,12 @@ public class SignUpBusinessActivity extends AppCompatActivity implements OnMapRe
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SignUpBusinessActivity.this,FinalBusinessSignUpActivity.class));
+                Intent intent=new Intent(SignUpBusinessActivity.this,FinalBusinessSignUpActivity.class);
+                Bundle bundle=new Bundle();
+                bundle.putString("Address",Address);
+                bundle.putString("ImageURL",URLNoKey);
+                intent.putExtra("BusinessBundle",bundle);
+                startActivity(intent);
             }
         });
 
@@ -106,12 +112,14 @@ public class SignUpBusinessActivity extends AppCompatActivity implements OnMapRe
                 MygoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,15));
                 CloseKeyboard();
                 ShowWidgets();
-                String PhotoURL="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=" + FinalplaceResult.getPhotoReference() + "&key=" +getResources().getString(R.string.google_maps_key);
+                String PhotoURL="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=" + FinalplaceResult.getPhotoReference() + "&key=" + getResources().getString(R.string.google_maps_key);
                 Uri uri =  Uri.parse(PhotoURL);
 
                 if (!PhotoURL.contentEquals("NA") && PhotoURL!=null) {
                     Glide.with(SignUpBusinessActivity.this).load(uri).into(ivBusiness);
+                    URLNoKey="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=" + FinalplaceResult.getPhotoReference()+ "&key=";
                 }
+                Address=FinalplaceResult.getAddress();
                 tvAddress.setText(FinalplaceResult.getAddress());
 
             }

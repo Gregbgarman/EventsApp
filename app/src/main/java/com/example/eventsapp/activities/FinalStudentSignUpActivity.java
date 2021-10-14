@@ -34,12 +34,16 @@ public class FinalStudentSignUpActivity extends AppCompatActivity {
     private Button btnCreateProfile;
     private ParseFile NewProfilePicture;
     private boolean HasUsername,HasPassword;
+    private Bundle NameBundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final_student_sign_up);
         getSupportActionBar().hide();
+        NameBundle=getIntent().getBundleExtra("NameBundle");
+
+
         etUsername=findViewById(R.id.etUserNameEntry);
         etPassword=findViewById(R.id.etPasswordEntry);
         ivProfilePic=findViewById(R.id.ivInitialProfilePicture);
@@ -68,11 +72,10 @@ public class FinalStudentSignUpActivity extends AppCompatActivity {
     private void CreateProfile() {
         String username = etUsername.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
+        String PersonName=NameBundle.getString("firstname") +" " + NameBundle.getString("lastname");
         ParseUser user = new ParseUser();
         user.setUsername(username);
         user.setPassword(password);
-
-
 
 
         user.signUpInBackground(new SignUpCallback() {
@@ -80,9 +83,12 @@ public class FinalStudentSignUpActivity extends AppCompatActivity {
             public void done(ParseException e) {
                 if (e == null) {
                     Toast.makeText(FinalStudentSignUpActivity.this, "Account Created", Toast.LENGTH_LONG).show();
+                    ParseUser.getCurrentUser().put("RealName",PersonName);
 
                     if (NewProfilePicture != null) {
                         ParseUser.getCurrentUser().put("ProfilePicture", NewProfilePicture);
+                    }
+
                         ParseUser.getCurrentUser().saveInBackground(new SaveCallback() {
                             @Override
                             public void done(ParseException e) {
@@ -91,10 +97,10 @@ public class FinalStudentSignUpActivity extends AppCompatActivity {
                             }
                         });
 
-                    }
 
-                    startActivity(new Intent(FinalStudentSignUpActivity.this, MainActivity.class));
-                    finish();
+
+                   // startActivity(new Intent(FinalStudentSignUpActivity.this, MainActivity.class));
+                    //finish();
                 }
 
                 else if (e != null) {

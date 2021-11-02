@@ -72,7 +72,7 @@
         app:layout_constraintTop_toBottomOf="@+id/etGetDate" />
 
     <Button
-        android:id="@+id/btSubmit"
+        android:id="@+id/btnCreateEvent"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:text="CREATE"
@@ -80,4 +80,18 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etGetDescription" />
+
+    <Button
+        android:id="@+id/btnGetDate"
+        style="?android:spinnerStyle"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="JAN 01 2021"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.163"
+        app:layout_constraintStart_toEndOf="@+id/etGetDate"
+        app:layout_constraintTop_toBottomOf="@+id/etGetEventName" />
 </androidx.constraintlayout.widget.ConstraintLayout>

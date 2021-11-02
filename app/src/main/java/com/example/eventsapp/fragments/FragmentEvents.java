@@ -71,12 +71,7 @@ public class FragmentEvents extends Fragment {
             @Override
             public void onClick(View v) {
                 createObject();
-                Fragment fragment = new FragmentConfirmation();
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction()
-                        .replace(R.id.FLContainer, fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+
 
             }
         });
@@ -132,6 +127,7 @@ public class FragmentEvents extends Fragment {
 
 
     }
+
 
 
 }

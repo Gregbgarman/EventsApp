@@ -15,13 +15,17 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,13 +46,13 @@ import com.parse.ParseUser;
 
 public class FragmentEvents extends Fragment {
 
-    ParseUser currentUser = ParseUser.getCurrentUser();
+
     private TextView etGetEventName;
     public TextView etGetDate;
     private TextView etGetTime;
     private TextView etGetDescription;
-    private Button btnCreateEvent;
-    private Button btnGetDate;
+    boolean privacyFlag = true;
+
 
 
     public FragmentEvents() {
@@ -63,9 +67,19 @@ public class FragmentEvents extends Fragment {
         etGetDate = view.findViewById(R.id.etGetDate);
         etGetDescription = view.findViewById(R.id.etGetDescription);
         etGetTime = view.findViewById(R.id.etGetTime);
-        btnCreateEvent = view.findViewById(R.id.btnCreateEvent);
-        btnGetDate = view.findViewById(R.id.btnGetDate);
+        Button btnCreateEvent = view.findViewById(R.id.btnCreateEvent);
+        Button btnGetDate = view.findViewById(R.id.btnGetDate);
+        Switch swPrivacy = (Switch) view.findViewById(R.id.swPrivacy);
+        swPrivacy.setChecked(false);
 
+        swPrivacy.setOnCheckedChangeListener((compoundButton, isChecked) -> {
+            if(isChecked){
+                privacyFlag = true;
+            }
+            else{
+                privacyFlag = false;
+            }
+        });
 
         btnCreateEvent.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,9 +98,8 @@ public class FragmentEvents extends Fragment {
         });
 
 
-
-
     }
+
 
     public String getEventName() {
         return etGetEventName.getText().toString().trim();
@@ -95,6 +108,7 @@ public class FragmentEvents extends Fragment {
     public String getEventDescription() {
         return etGetDescription.getText().toString().trim();
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -113,9 +127,20 @@ public class FragmentEvents extends Fragment {
         newEvent.put("createdByUser", currentUser);
         newEvent.put("eventDescription", getEventDescription());
 
+        if(privacyFlag){
+            newEvent.put("eventPrivate", true);
+        }
+        else{
+            newEvent.put("eventPrivate", false);
+        }
         newEvent.saveInBackground(e -> {
             if(e==null){
-                //saved
+                Fragment fragment = new FragmentConfirmation();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction()
+                        .replace(R.id.FLContainer, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
             else {
 

@@ -45,6 +45,7 @@
         android:layout_marginTop="4dp"
         android:ems="10"
         android:hint="Enter Date"
+        android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etGetEventName" />
 
@@ -52,11 +53,12 @@
         android:id="@+id/etGetDescription"
         android:layout_width="356dp"
         android:layout_height="158dp"
-        android:layout_marginTop="8dp"
         android:ems="10"
         android:gravity="start|top"
         android:hint="Enter Description..."
         android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etGetTime" />
 
@@ -68,6 +70,7 @@
         android:ems="10"
         android:hint="Enter Time"
         android:inputType="time"
+        android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etGetDate" />
 
@@ -77,7 +80,7 @@
         android:layout_height="wrap_content"
         android:text="CREATE"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etGetDescription" />
 
@@ -94,4 +97,17 @@
         app:layout_constraintHorizontal_bias="0.163"
         app:layout_constraintStart_toEndOf="@+id/etGetDate"
         app:layout_constraintTop_toBottomOf="@+id/etGetEventName" />
+
+    <Switch
+        android:id="@+id/swPrivacy"
+        android:layout_width="192dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="12dp"
+        android:text="Private Event?"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/etGetTime"
+        app:layout_constraintTop_toBottomOf="@+id/btnGetDate" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

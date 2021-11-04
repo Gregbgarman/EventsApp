@@ -4,20 +4,20 @@
 
     <item
         android:id="@+id/itFragmentHome"
-        android:icon="@android:drawable/btn_star_big_on"
-        android:title="Fragment"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="Home"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/itFragmentEvent"
-        android:icon="@android:drawable/ic_input_add"
+        android:icon="@android:drawable/ic_menu_add"
         android:title="New Event"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/itFragmentProfile"
-        android:icon="@android:drawable/btn_star_big_on"
-        android:title="Fragment"
+        android:icon="@android:drawable/ic_menu_myplaces"
+        android:title="Profile"
         app:showAsAction="always" />
 
 

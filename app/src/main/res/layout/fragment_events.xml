@@ -8,6 +8,76 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+    <Button
+        android:id="@+id/btnGetTime"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="56dp"
+        android:scrollbarStyle="insideInset"
+        android:text="12:00 AM"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintStart_toEndOf="@+id/tvTime"
+        app:layout_constraintTop_toBottomOf="@+id/btnGetDate" />
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="129dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="36dp"
+        android:text="EVENT TIME:"
+        android:textAllCaps="true"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDate" />
+
+    <Button
+        android:id="@+id/btnCreateEvent"
+        android:layout_width="269dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:text="CREATE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etGetDescription" />
+
+    <CheckBox
+        android:id="@+id/cbPrivacy"
+        android:layout_width="198dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="28dp"
+        android:text="Private Event?"
+        android:textAllCaps="true"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTime" />
+
+    <EditText
+        android:id="@+id/etGetDescription"
+        android:layout_width="340dp"
+        android:layout_height="143dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="ENTER DESCRIPTION..."
+        android:inputType="textMultiLine"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cbPrivacy" />
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="272dp"
@@ -29,69 +99,54 @@
 
     <EditText
         android:id="@+id/etGetEventName"
-        android:layout_width="396dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="36dp"
+        android:layout_width="337dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="32dp"
         android:ems="10"
-        android:hint="Event Name"
+        android:hint="EVENT NAME"
         android:inputType="textPersonName"
+        android:textAllCaps="true"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-    <EditText
-        android:id="@+id/etGetDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:ems="10"
-        android:hint="Enter Date"
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="129dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="32dp"
+        android:text="EVENT DATE:"
+        android:textAllCaps="true"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etGetEventName" />
-
-    <EditText
-        android:id="@+id/etGetDescription"
-        android:layout_width="356dp"
-        android:layout_height="158dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Enter Description..."
-        android:inputType="textMultiLine"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etGetTime" />
-
-    <EditText
-        android:id="@+id/etGetTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:hint="Enter Time"
-        android:inputType="time"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etGetDate" />
-
-    <Button
-        android:id="@+id/btnCreateEvent"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:text="CREATE"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etGetDescription" />
 
     <Button
         android:id="@+id/btnGetDate"
-        style="?android:spinnerStyle"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="56dp"
+        android:scrollbarStyle="insideInset"
         android:text="JAN 01 2021"
-        android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.163"
-        app:layout_constraintStart_toEndOf="@+id/etGetDate"
+        app:layout_constraintStart_toEndOf="@+id/tvDate"
         app:layout_constraintTop_toBottomOf="@+id/etGetEventName" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="26dp" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

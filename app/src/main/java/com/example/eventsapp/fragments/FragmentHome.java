@@ -90,7 +90,13 @@ public class FragmentHome extends Fragment {
                         public void done(List<ParseUser> users, ParseException e) {
                             if (e == null) {
                                 UserList.clear();       //this needs to be here to prevent duplicates appearing
-                                UserList.addAll(users);
+                                for (ParseUser user:users){
+                                    if (!user.getObjectId().equals(ParseUser.getCurrentUser().getObjectId())){
+                                        UserList.add(user);
+                                    }
+                                }
+                               //UserList.addAll(users);
+
                                 userProfileAdapter.notifyDataSetChanged();
                             }
 

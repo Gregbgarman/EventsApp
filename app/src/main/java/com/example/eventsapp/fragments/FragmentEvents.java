@@ -31,7 +31,9 @@ import org.w3c.dom.Text;
 
 import java.util.Calendar;
 
-import com.example.eventsapp.activities.DatePickerActivity;
+
+
+//import com.example.eventsapp.activities.DatePickerActivity;
 import com.example.eventsapp.activities.LoginActivity;
 import com.google.android.material.snackbar.Snackbar;
 import com.parse.ParseFile;
@@ -59,6 +61,9 @@ public class FragmentEvents extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        /*
+
         etGetEventName = view.findViewById(R.id.etGetEventName);
         etGetDate = view.findViewById(R.id.etGetDate);
         etGetDescription = view.findViewById(R.id.etGetDescription);
@@ -130,7 +135,7 @@ public class FragmentEvents extends Fragment {
             }
         });
 
-
+*/
     }
 
 

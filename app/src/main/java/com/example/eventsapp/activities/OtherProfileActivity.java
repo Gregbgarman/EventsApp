@@ -2,6 +2,7 @@ package com.example.eventsapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,8 @@ public class OtherProfileActivity extends AppCompatActivity {
     private TextView tvPersonRealName,tvPersonUserName;
     private ImageView ivProfilePicture;
     private Button btnSendMessage;
+    private Bundle bundle;
+    ParseUser OtherPerson;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +31,8 @@ public class OtherProfileActivity extends AppCompatActivity {
         ivProfilePicture=findViewById(R.id.ivOtherPersonProfilePicturee);
         btnSendMessage=findViewById(R.id.btnSendOtherPersonMessage);
 
-        Bundle bundle=getIntent().getBundleExtra("BundleFromAdapter");
-        ParseUser OtherPerson=bundle.getParcelable("UserProfileFromAdapter");
+        bundle=getIntent().getBundleExtra("BundleFromAdapter");
+        OtherPerson=bundle.getParcelable("UserProfileFromAdapter");
 
         //need to check if business and set up accordingly
 
@@ -40,7 +43,11 @@ public class OtherProfileActivity extends AppCompatActivity {
         btnSendMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //coming soon
+                Bundle bundle=new Bundle();
+                bundle.putParcelable("UserProfileBeforeMsg",OtherPerson);
+                Intent intent=new Intent(OtherProfileActivity.this, DirectMessageActivity.class);
+                intent.putExtra("Bundle12345",bundle);
+                startActivity(intent);
 
             }
         });

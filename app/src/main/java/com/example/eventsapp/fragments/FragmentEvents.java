@@ -1,40 +1,27 @@
 package com.example.eventsapp.fragments;
 
-import android.app.AlertDialog;
-import android.app.DatePickerDialog;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.Gravity;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.ImageView;
+
+import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.example.eventsapp.R;
 
-import org.w3c.dom.Text;
-
-import java.util.Calendar;
-
-import com.example.eventsapp.activities.DatePickerActivity;
-import com.example.eventsapp.activities.LoginActivity;
 import com.google.android.material.snackbar.Snackbar;
-import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
@@ -42,13 +29,13 @@ import com.parse.ParseUser;
 
 public class FragmentEvents extends Fragment {
 
-    ParseUser currentUser = ParseUser.getCurrentUser();
+
     private TextView etGetEventName;
     public TextView etGetDate;
     private TextView etGetTime;
     private TextView etGetDescription;
-    private Button btnCreateEvent;
-    private Button btnGetDate;
+    boolean privacyFlag = true;
+
 
 
     public FragmentEvents() {
@@ -63,20 +50,25 @@ public class FragmentEvents extends Fragment {
         etGetDate = view.findViewById(R.id.etGetDate);
         etGetDescription = view.findViewById(R.id.etGetDescription);
         etGetTime = view.findViewById(R.id.etGetTime);
-        btnCreateEvent = view.findViewById(R.id.btnCreateEvent);
-        btnGetDate = view.findViewById(R.id.btnGetDate);
+        Button btnCreateEvent = view.findViewById(R.id.btnCreateEvent);
+        Button btnGetDate = view.findViewById(R.id.btnGetDate);
+        Switch swPrivacy = (Switch) view.findViewById(R.id.swPrivacy);
+        swPrivacy.setChecked(false);
 
+        swPrivacy.setOnCheckedChangeListener((compoundButton, isChecked) -> {
+            if(isChecked){
+                privacyFlag = true;
+            }
+            else{
+                privacyFlag = false;
+            }
+        });
 
         btnCreateEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 createObject();
-                Fragment fragment = new FragmentConfirmation();
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction()
-                        .replace(R.id.FLContainer, fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+
 
             }
         });
@@ -89,9 +81,8 @@ public class FragmentEvents extends Fragment {
         });
 
 
-
-
     }
+
 
     public String getEventName() {
         return etGetEventName.getText().toString().trim();
@@ -100,6 +91,7 @@ public class FragmentEvents extends Fragment {
     public String getEventDescription() {
         return etGetDescription.getText().toString().trim();
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -118,9 +110,20 @@ public class FragmentEvents extends Fragment {
         newEvent.put("createdByUser", currentUser);
         newEvent.put("eventDescription", getEventDescription());
 
+        if(privacyFlag){
+            newEvent.put("eventPrivate", true);
+        }
+        else{
+            newEvent.put("eventPrivate", false);
+        }
         newEvent.saveInBackground(e -> {
             if(e==null){
-                //saved
+                Fragment fragment = new FragmentConfirmation();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction()
+                        .replace(R.id.FLContainer, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
             else {
 
@@ -132,6 +135,7 @@ public class FragmentEvents extends Fragment {
 
 
     }
+
 
 
 }

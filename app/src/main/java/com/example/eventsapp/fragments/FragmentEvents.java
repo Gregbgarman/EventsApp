@@ -1,44 +1,27 @@
 package com.example.eventsapp.fragments;
 
-import android.app.AlertDialog;
-import android.app.DatePickerDialog;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
-import android.view.Gravity;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.DatePicker;
-import android.widget.ImageView;
+
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.example.eventsapp.R;
 
-import org.w3c.dom.Text;
-
-import java.util.Calendar;
-
-import com.example.eventsapp.activities.DatePickerActivity;
-import com.example.eventsapp.activities.LoginActivity;
 import com.google.android.material.snackbar.Snackbar;
-import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 

@@ -26,9 +26,10 @@ public class FragmentSettings extends Fragment {
     private ImageView ivSettingsProfilePic;
     private EditText etSettingsUsername;
     private EditText etSettingsPassword;
+    private EditText etSettingsInstagram;
     private Button btnSettingsCancel;
     private Button btnSettingsSaveChanges;
-
+    //public static final String KEY_Instagram = "instagram";
     public FragmentSettings(){
         // Empty constructor
     }
@@ -39,6 +40,7 @@ public class FragmentSettings extends Fragment {
         ivSettingsProfilePic = view.findViewById(R.id.ivSettingsProfilePic);
         etSettingsUsername = view.findViewById(R.id.etSettingsUsername);
         etSettingsPassword = view.findViewById(R.id.etSettingsPassword);
+        etSettingsInstagram = view.findViewById(R.id.etSettingsInstagram);
         btnSettingsCancel = view.findViewById(R.id.btnSettingsCancel);
         btnSettingsSaveChanges = view.findViewById(R.id.btnSettingsSaveChanges);
 
@@ -85,6 +87,14 @@ public class FragmentSettings extends Fragment {
                     System.out.println("Error: Password could not be changed, must be longer than 0 characters");
                 else
                     currentUser.setPassword(etSettingsPassword.getText().toString());
+
+                if(etSettingsInstagram.getText().toString().length() <= 0)
+                    System.out.println("Error: Instagram account could not be set, your Instagram Username must be longer than 0 characters");
+                else
+                    currentUser.put("instagram", etSettingsInstagram.getText().toString());
+                    currentUser.saveInBackground();
+
+
 
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 fragmentManager.popBackStack();

@@ -14,4 +14,4 @@
 
 [Software Implementation and Testing Document](https://github.com/Gregbgarman/EventsApp/blob/master/IT%20Template.docx)
 
-[Youtube Video Link](https://youtu.be/GO7YOX7wp-o)
+[Youtube Video Link](https://youtu.be/3FCHVX5l1Co)

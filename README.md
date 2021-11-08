@@ -6,7 +6,7 @@
 * [X] Event creation
 * [X] Direct Messaging
 * [X] Profile Custimaztion
-* [X] Instagram integration
+* [X] Instagram linking
 
 [Progress Report](https://github.com/Gregbgarman/EventsApp/blob/master/Progress%20Report%20Template.docx)
 

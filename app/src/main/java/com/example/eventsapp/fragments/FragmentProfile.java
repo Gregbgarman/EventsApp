@@ -30,6 +30,7 @@ public class FragmentProfile extends Fragment {
     private ImageView ivProfilePic;
     private TextView tvUsername;
     private Button btnSettings;
+    private TextView tvName;
 
     public FragmentProfile() {
         // Required empty public constructor
@@ -41,17 +42,20 @@ public class FragmentProfile extends Fragment {
         ivProfilePic = view.findViewById(R.id.ivProfilePic);
         tvUsername = view.findViewById(R.id.tvProfileUsername);
         btnSettings = view.findViewById(R.id.btnSettings);
+        tvName = view.findViewById(R.id.tvProfileName);
 
         // load user image from parse
         ParseFile profilePicImage = currentUser.getParseFile("ProfilePicture");
         if (profilePicImage != null) {
             Glide.with(getContext()).load(profilePicImage.getUrl()).circleCrop().into(ivProfilePic);
-        } else {
-            Glide.with(getContext()).load(R.drawable.img_1).circleCrop().into(ivProfilePic);
         }
+        /* else // This is where we can set a default image, or set on back4app
+            Glide.with(getContext()).load(R.drawable.img_1).circleCrop().into(ivProfilePic);
+        }*/
 
         //load username from parse
         tvUsername.setText(currentUser.getUsername());
+        tvName.setText((String)currentUser.get("RealName"));
 
         btnSettings.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -11,33 +11,23 @@
         <entry key="..\:/Users/corin/Desktop/4090/EventsApp/app/src/main/res/layout/fragment_profile.xml" value="0.3307291666666667" />
         <entry key="..\:/Users/corin/Desktop/4090/EventsApp/app/src/main/res/menu/bottom_nav_bar.xml" value="0.41458333333333336" />
         <entry key="..\:/Users/corin/Desktop/4090/EventsApp/app/src/main/res/menu/menu_main.xml" value="0.41458333333333336" />
-        <entry key="..\:/Users/grego/AndroidStudioProjects/EventsApp/app/src/main/res/drawable/bubbleincoming.xml" value="0.19583333333333333" />
-        <entry key="..\:/Users/grego/AndroidStudioProjects/EventsApp/app/src/main/res/drawable/bubbleoutgoing.xml" value="0.19583333333333333" />
-        <entry key="..\:/Users/grego/AndroidStudioProjects/EventsApp/app/src/main/res/layout/activity_direct_message.xml" value="0.22" />
-        <entry key="..\:/Users/grego/AndroidStudioProjects/EventsApp/app/src/main/res/layout/activity_final_business_sign_up.xml" value="0.1286231884057971" />
-        <entry key="..\:/Users/grego/AndroidStudioProjects/EventsApp/app/src/main/res/layout/activity_final_student_sign_up.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/grego/AndroidStudioProjects/EventsApp/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Users/grego/AndroidStudioProjects/EventsApp/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
-        <entry key="..\:/Users/grego/AndroidStudioProjects/EventsApp/app/src/main/res/layout/activity_other_profile.xml" value="0.15353260869565216" />
-        <entry key="..\:/Users/grego/AndroidStudioProjects/EventsApp/app/src/main/res/layout/activity_sign_up_intermediate.xml" value="0.1286231884057971" />
-        <entry key="..\:/Users/grego/AndroidStudioProjects/EventsApp/app/src/main/res/layout/activity_sign_up_student.xml" value="0.22" />
         <entry key="..\:/Users/grego/AndroidStudioProjects/EventsApp/app/src/main/res/layout/content_main.xml" value="0.12681159420289856" />
-        <entry key="..\:/Users/grego/AndroidStudioProjects/EventsApp/app/src/main/res/layout/eachmessagefromme.xml" value="0.15353260869565216" />
-        <entry key="..\:/Users/grego/AndroidStudioProjects/EventsApp/app/src/main/res/layout/eachmessagefromotherperson.xml" value="0.15353260869565216" />
-        <entry key="..\:/Users/grego/AndroidStudioProjects/EventsApp/app/src/main/res/layout/eachprofile.xml" value="0.22" />
-        <entry key="..\:/Users/grego/AndroidStudioProjects/EventsApp/app/src/main/res/layout/fragment_events.xml" value="0.14266304347826086" />
         <entry key="..\:/Users/grego/AndroidStudioProjects/EventsApp/app/src/main/res/layout/fragment_first.xml" value="0.12681159420289856" />
-        <entry key="..\:/Users/grego/AndroidStudioProjects/EventsApp/app/src/main/res/layout/fragment_home.xml" value="0.22" />
-        <entry key="..\:/Users/grego/AndroidStudioProjects/EventsApp/app/src/main/res/layout/fragment_profile.xml" value="0.14945652173913043" />
+        <entry key="..\:/Users/grego/AndroidStudioProjects/EventsApp/app/src/main/res/layout/fragment_home.xml" value="0.12681159420289856" />
         <entry key="..\:/Users/grego/AndroidStudioProjects/EventsApp/app/src/main/res/layout/fragment_second.xml" value="0.12681159420289856" />
         <entry key="..\:/Users/grego/AndroidStudioProjects/EventsApp/app/src/main/res/menu/bottom_nav_bar.xml" value="0.1796875" />
         <entry key="..\:/Users/grego/AndroidStudioProjects/EventsApp/app/src/main/res/menu/menu_main.xml" value="0.1796875" />
         <entry key="app/src/main/res/layout/activity_final_student_sign_up.xml" value="0.39010416666666664" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25364583333333335" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.39010416666666664" />
-        <entry key="app/src/main/res/layout/fragment_events.xml" value="0.39010416666666664" />
+        <entry key="app/src/main/res/layout/activity_sign_up_student.xml" value="0.21331521739130435" />
+        <entry key="app/src/main/res/layout/eachprofile.xml" value="0.33242753623188404" />
+        <entry key="app/src/main/res/layout/fragment_events.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.39010416666666664" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.23097826086956522" />
+        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.24375" />
       </map>
     </option>
   </component>

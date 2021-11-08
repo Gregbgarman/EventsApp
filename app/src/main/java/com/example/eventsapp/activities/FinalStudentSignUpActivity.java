@@ -87,9 +87,10 @@ public class FinalStudentSignUpActivity extends AppCompatActivity {
 
                     if (NewProfilePicture != null) {
                         ParseUser.getCurrentUser().put("ProfilePicture", NewProfilePicture);
-                    } else {
-                        ParseUser.getCurrentUser().put("ProfilePicture", R.drawable.img_1);
                     }
+                    /* else { // This is where we can set a default image, or set on back4app
+                        ParseUser.getCurrentUser().put("ProfilePicture", R.drawable.img_1);
+                    } */
 
                         ParseUser.getCurrentUser().saveInBackground(new SaveCallback() {
                             @Override

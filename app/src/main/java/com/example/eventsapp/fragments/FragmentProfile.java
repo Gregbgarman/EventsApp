@@ -49,9 +49,9 @@ public class FragmentProfile extends Fragment {
         if (profilePicImage != null) {
             Glide.with(getContext()).load(profilePicImage.getUrl()).circleCrop().into(ivProfilePic);
         }
-        /* else // This is where we can set a default image, or set on back4app
+        else {
             Glide.with(getContext()).load(R.drawable.img_1).circleCrop().into(ivProfilePic);
-        }*/
+        }
 
         //load username from parse
         tvUsername.setText(currentUser.getUsername());

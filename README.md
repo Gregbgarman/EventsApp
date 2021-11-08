@@ -1,14 +1,12 @@
 # EventsApp
 
-### Iteration 1 Requirements/Features
+### Iteration 2 Requirements/Features
 
-* [X] Back4App Database Creation
-* [X] Login/Signup functionality
-  * [X] Profile Creation for a student
-  * [X] Profile Creation for a business owner
-* [X] Home Fragments created
-* [X] Basic Profile Setup
-* [X] Event Creation Setup
+* [X] Searching for profiles
+* [X] Event creation
+* [X] Direct Messaging
+* [X] Profile Custimaztion
+* [X] Instagram integration
 
 [Progress Report](https://github.com/Gregbgarman/EventsApp/blob/master/Progress%20Report%20Template.docx)
 

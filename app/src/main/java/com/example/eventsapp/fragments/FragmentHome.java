@@ -37,7 +37,7 @@ import java.util.List;
 
 public class FragmentHome extends Fragment {
 
-    private Button btnLogout;
+
 
     EditText etProfileSearch;
     RecyclerView rvProfiles;
@@ -53,16 +53,8 @@ public class FragmentHome extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        btnLogout=view.findViewById(R.id.btnLogout);
 
 
-
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LogOut();
-            }
-        });
 
         etProfileSearch=view.findViewById(R.id.etSearchUserProfiles);
         rvProfiles=view.findViewById(R.id.rvSearchProfiles);
@@ -153,20 +145,5 @@ public class FragmentHome extends Fragment {
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
-    private void LogOut(){      //probably more proper to call interface and logout from main to ensure main ends
-                                //this is fine for testing for now
-        ParseUser.logOutInBackground(new LogOutCallback() {
-            @Override
-            public void done(ParseException e) {
-                if(e == null) {
-                    Toast.makeText(getContext(), "Logging out...", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getContext(), LoginActivity.class));
-                }
-                else {
-                    Toast.makeText(getContext(), "Error logging out", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
 
-    }
 }

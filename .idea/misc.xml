@@ -25,8 +25,11 @@
         <entry key="..\:/Users/ianbr/Desktop/EventsApp/app/src/main/res/layout/activity_login.xml" value="0.15806159420289856" />
         <entry key="..\:/Users/ianbr/Desktop/EventsApp/app/src/main/res/layout/activity_other_profile.xml" value="0.375" />
         <entry key="..\:/Users/ianbr/Desktop/EventsApp/app/src/main/res/layout/eachprofile.xml" value="0.335" />
-        <entry key="..\:/Users/ianbr/Desktop/EventsApp/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+        <entry key="..\:/Users/ianbr/Desktop/EventsApp/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/ianbr/Desktop/EventsApp/app/src/main/res/layout/fragment_profile.xml" value="0.45" />
         <entry key="..\:/Users/ianbr/Desktop/EventsApp/app/src/main/res/layout/fragment_settings.xml" value="0.335" />
+        <entry key="..\:/Users/ianbr/Desktop/EventsApp/app/src/main/res/menu/bottom_nav_bar.xml" value="0.32051282051282054" />
+        <entry key="..\:/Users/ianbr/Desktop/EventsApp/app/src/main/res/menu/menu_main.xml" value="0.32051282051282054" />
         <entry key="app/src/main/res/layout/activity_final_student_sign_up.xml" value="0.39010416666666664" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25364583333333335" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.39010416666666664" />

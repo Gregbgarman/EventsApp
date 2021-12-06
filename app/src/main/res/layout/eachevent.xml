@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tveeEventName"
+        android:layout_width="326dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/alike_angular"
+        android:text="TextView"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvEEDate"
+        android:layout_width="108dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/alike_angular"
+        android:text="TextView"
+        android:textAlignment="viewStart"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvEETime" />
+
+    <TextView
+        android:id="@+id/tvEETime"
+        android:layout_width="88dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="42dp"
+        android:fontFamily="@font/alike_angular"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tveeCreatedBy" />
+
+    <TextView
+        android:id="@+id/tveeCreatedBy"
+        android:layout_width="201dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="165dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tveeEventName" />
+
+    <ImageView
+        android:id="@+id/ivEEProfilePic"
+        android:layout_width="66dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="178dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvEEDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tveeCreatedBy"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ProgressBar
+        android:id="@+id/progressBar3"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="406dp"
+        android:layout_height="5dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="11dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvEEDate" />
+</androidx.constraintlayout.widget.ConstraintLayout>

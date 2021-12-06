@@ -1,5 +1,6 @@
 package com.example.eventsapp.fragments;
 
+import android.app.usage.UsageEvents;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -21,7 +22,9 @@ import android.widget.Toast;
 
 import com.example.eventsapp.R;
 import com.example.eventsapp.activities.LoginActivity;
+import com.example.eventsapp.adapters.ShowEventsAdapter;
 import com.example.eventsapp.adapters.UserProfileAdapter;
+import com.example.eventsapp.models.Events;
 import com.parse.FindCallback;
 import com.parse.LogOutCallback;
 import com.parse.ParseException;
@@ -39,6 +42,8 @@ public class FragmentHome extends Fragment {
     EditText etProfileSearch;
     RecyclerView rvProfiles;
     List<ParseUser> UserList;
+    List<Events> EventList;
+    ShowEventsAdapter showEventsAdapter;
     UserProfileAdapter userProfileAdapter;
 
     public FragmentHome() {
@@ -62,9 +67,31 @@ public class FragmentHome extends Fragment {
         etProfileSearch=view.findViewById(R.id.etSearchUserProfiles);
         rvProfiles=view.findViewById(R.id.rvSearchProfiles);
         UserList=new ArrayList<>();
+        EventList=new ArrayList<>();
         userProfileAdapter=new UserProfileAdapter(UserList,getContext());
-        rvProfiles.setAdapter(userProfileAdapter);
+        showEventsAdapter=new ShowEventsAdapter(getContext(),EventList);
         rvProfiles.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        ParseQuery<Events> query= ParseQuery.getQuery(Events.class);    //gets public events
+        query.findInBackground(new FindCallback<Events>() {
+            @Override
+            public void done(List<Events> AllEvents, ParseException e) {
+                for (Events event: AllEvents){
+                    if (event.EventIsPrivate()==true){
+                        EventList.add(event);
+                    }
+                }
+                rvProfiles.setAdapter(showEventsAdapter);
+                showEventsAdapter.notifyDataSetChanged();
+            }
+        });
+
+
+        //query posts and set to recyclerview
+
+
+       // rvProfiles.setAdapter(userProfileAdapter);
+
 
         etProfileSearch.addTextChangedListener(new TextWatcher() {
             @Override
@@ -74,10 +101,13 @@ public class FragmentHome extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                rvProfiles.setAdapter(userProfileAdapter);
 
                 if (s.length()==0) {
                     UserList.clear();
                     userProfileAdapter.notifyDataSetChanged();
+                    rvProfiles.setAdapter(showEventsAdapter);
+
                 }
 
                 if (s.length() > 0) {

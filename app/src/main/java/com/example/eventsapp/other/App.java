@@ -5,16 +5,19 @@ import android.provider.CalendarContract;
 
 import com.example.eventsapp.R;
 import com.example.eventsapp.models.DirectMessage;
+import com.example.eventsapp.models.Events;
 import com.parse.Parse;
 import com.parse.ParseObject;
 
 public class App extends Application {
 
     public void onCreate() {
+
         super.onCreate();
 
 
         ParseObject.registerSubclass(DirectMessage.class);
+        ParseObject.registerSubclass(Events.class);
 
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId(getResources().getString(R.string.back4app_app_id))

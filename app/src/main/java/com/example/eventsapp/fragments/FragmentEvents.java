@@ -28,6 +28,7 @@ import android.widget.TimePicker;
 
 import com.example.eventsapp.R;
 
+import com.example.eventsapp.models.Events;
 import com.google.android.material.snackbar.Snackbar;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
@@ -228,7 +229,7 @@ public class FragmentEvents extends Fragment{
 
     // This function is used to create the new parse object and then add in the information
     public void createObject() {
-        ParseObject newEvent = new ParseObject("Events");
+        Events newEvent=new Events();
         ParseUser currentUser = ParseUser.getCurrentUser();
 
 

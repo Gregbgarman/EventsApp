@@ -1,6 +1,7 @@
 package com.example.eventsapp.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,16 +9,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.eventsapp.R;
+import com.example.eventsapp.activities.DirectMessageActivity;
+import com.example.eventsapp.activities.EventsActivity;
+import com.example.eventsapp.activities.OtherProfileActivity;
 import com.example.eventsapp.models.Events;
 import com.example.eventsapp.models.PlaceResult;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -53,6 +60,7 @@ public class ShowEventsAdapter extends RecyclerView.Adapter<ShowEventsAdapter.Vi
 
         private TextView tvEventName,tvUserName, tvEventTime,tvEventDate;
         private ImageView ivProfilePic;
+        private ConstraintLayout eventCLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -61,6 +69,7 @@ public class ShowEventsAdapter extends RecyclerView.Adapter<ShowEventsAdapter.Vi
             tvEventTime=itemView.findViewById(R.id.tvEETime);
             tvEventDate=itemView.findViewById(R.id.tvEEDate);
             ivProfilePic=itemView.findViewById(R.id.ivEEProfilePic);
+            eventCLayout=itemView.findViewById(R.id.eventsLayout);
         }
 
         public void bind(Events event){
@@ -70,6 +79,16 @@ public class ShowEventsAdapter extends RecyclerView.Adapter<ShowEventsAdapter.Vi
             ParseUser user=event.GetEventCreator();
             ParseQuery<ParseUser> query = ParseUser.getQuery();
             query.whereContains("objectId",user.getObjectId());
+
+            eventCLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(context, EventsActivity.class);
+                    i.putExtra("eventStuff", Parcels.wrap(event));
+                    context.startActivity(i);
+                }
+            });
+
             query.findInBackground(new FindCallback<ParseUser>() {
                 @Override
                 public void done(List<ParseUser> TheUser, ParseException e) {
@@ -78,7 +97,9 @@ public class ShowEventsAdapter extends RecyclerView.Adapter<ShowEventsAdapter.Vi
                     Glide.with(context).load(User.getParseFile("ProfilePicture").getUrl()).circleCrop().into(ivProfilePic);
 
                 }
+
             });
+
 
 
 

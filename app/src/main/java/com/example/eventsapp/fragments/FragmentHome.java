@@ -32,6 +32,7 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -73,6 +74,7 @@ public class FragmentHome extends Fragment {
                         EventList.add(event);
                     }
                 }
+                Collections.reverse(EventList);
                 rvProfiles.setAdapter(showEventsAdapter);
                 showEventsAdapter.notifyDataSetChanged();
             }

@@ -15,4 +15,4 @@
 
 [Software Implementation and Testing Document](https://github.com/Gregbgarman/EventsApp/blob/iteration3/IT%20Template.docx)
 
-[Youtube Video Link](https://youtu.be/3FCHVX5l1Co)
+[Youtube Video Link](https://youtu.be/Fiedlqjt2A4)

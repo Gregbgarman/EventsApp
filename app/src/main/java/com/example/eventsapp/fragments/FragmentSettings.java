@@ -1,7 +1,13 @@
 package com.example.eventsapp.fragments;
 
+import static android.app.Activity.RESULT_OK;
+
+import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.OpenableColumns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +15,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.content.ContentResolver;
+import android.content.ContextWrapper;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,9 +28,13 @@ import com.example.eventsapp.R;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 public class FragmentSettings extends Fragment {
 
     ParseUser currentUser = ParseUser.getCurrentUser();
+    private ParseFile NewProfilePicture;
     private ImageView ivSettingsProfilePic;
     private EditText etSettingsUsername;
     private EditText etSettingsPassword;
@@ -59,7 +71,7 @@ public class FragmentSettings extends Fragment {
         ivSettingsProfilePic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Allow user to change profile pic
+                AccessPhonePhotoGallery();
             }
         });
 
@@ -79,12 +91,12 @@ public class FragmentSettings extends Fragment {
             public void onClick(View v) {
                 // save the changes
                 if(etSettingsUsername.getText().toString().length() <= 0)
-                    System.out.println("Error: Username could not be changed, must be longer than 0 characters");
+                    System.out.println("No username provided");
                 else
                     currentUser.setUsername(etSettingsUsername.getText().toString());
 
                 if(etSettingsPassword.getText().toString().length() <= 0)
-                    System.out.println("Error: Password could not be changed, must be longer than 0 characters");
+                    System.out.println("No password provided");
                 else
                     currentUser.setPassword(etSettingsPassword.getText().toString());
 
@@ -92,7 +104,13 @@ public class FragmentSettings extends Fragment {
                     System.out.println("Error: Instagram account could not be set, your Instagram Username must be longer than 0 characters");
                 else
                     currentUser.put("instagram", etSettingsInstagram.getText().toString());
-                    currentUser.saveInBackground();
+
+                if(NewProfilePicture != null) {
+                    System.out.println("Picture has been changed");
+                    currentUser.put("ProfilePicture", NewProfilePicture);
+                }
+
+                currentUser.saveInBackground();
 
 
 
@@ -107,6 +125,59 @@ public class FragmentSettings extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_settings, container, false);
+    }
+
+    private void AccessPhonePhotoGallery(){
+        Intent intent=new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent,4243);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode==RESULT_OK && requestCode==4243 && data!=null && data.getData()!=null){
+
+            Uri imageuri=data.getData();
+            Glide.with(this).load(imageuri).circleCrop().into(ivSettingsProfilePic);
+            InputStream inputstream=null;
+            String filename=getFileName(imageuri);
+
+            try {
+                inputstream = getContext().getContentResolver().openInputStream(imageuri);
+                byte buffer[] = new byte[inputstream.available()];
+                inputstream.read(buffer);
+                NewProfilePicture = new ParseFile(filename, buffer);
+                inputstream.close();
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public String getFileName(Uri uri) {    //converting uri to string
+        String result = null;
+        if (uri.getScheme().equals("content")) {
+            Cursor cursor = getContext().getContentResolver().query(uri, null, null, null, null);
+            try {
+                if (cursor != null && cursor.moveToFirst()) {
+                    result = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                }
+            } finally {
+                cursor.close();
+            }
+        }
+        if (result == null) {
+            result = uri.getPath();
+            int cut = result.lastIndexOf('/');
+            if (cut != -1) {
+                result = result.substring(cut + 1);
+            }
+        }
+        return result;
     }
 
 }
